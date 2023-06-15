@@ -26,6 +26,7 @@ npx hardhat verify --network base-goerli <deployed address>
 npm install --save-dev hardhat
 npm install --save-dev @nomicfoundation/hardhat-toolbox
 npm install --save-dev @nomicfoundation/hardhat-verify
-npm install --save-dev dotenv
+npm install --save-dev dotenv solidity-math
+
 npm install --save @openzeppelin/contracts
 ```
