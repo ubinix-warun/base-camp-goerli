@@ -29,4 +29,11 @@ npm install --save-dev @nomicfoundation/hardhat-verify
 npm install --save-dev dotenv solidity-math
 
 npm install --save @openzeppelin/contracts
+
+npm install mocha -- save-dev
+npm install chai -- save-dev
+npm install mocha -g
+
+npm run test
+
 ```
