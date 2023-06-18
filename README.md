@@ -7,6 +7,7 @@ Try running some of the following tasks:
 ```shell
 npx hardhat help
 npx hardhat test
+npx hardhat coverage
 
 npx hardhat compile
 npx hardhat run scripts/deploy.ts --network base-goerli
@@ -35,5 +36,7 @@ npm install chai -- save-dev
 npm install mocha -g
 
 npm run test
+
+npm install --save-dev solidity-coverage
 
 ```

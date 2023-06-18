@@ -3,6 +3,8 @@ import '@nomicfoundation/hardhat-toolbox';
 import "@nomicfoundation/hardhat-verify";
 // FIXED BY ^ import "@nomiclabs/hardhat-etherscan";
 
+require('solidity-coverage');
+
 require('dotenv').config();
 
 const config: HardhatUserConfig = {
