@@ -19,6 +19,20 @@ async function deployLock() {
   );
 }
 
+async function deployEmployeePat(tag: string,contractName: string) {
+
+  const EmployeePat = await ethers.getContractFactory("EmployeeStorage");
+  // const employeeAlice = await EmployeeAlice.deploy(1000, "Alice", 30000, 112358132139);
+  const employeePat = await EmployeePat.deploy(1000, "Pat", 50000, 112358132134);
+
+  await employeePat.waitForDeployment();
+
+  console.log(
+    `${tag}: ${contractName}(1000, "Pat", 50000, 112358132134) deployed to ${employeePat.target}`
+  );
+
+}
+
 async function deployContractName(tag: string,contractName: string) {
   const contract = await ethers.deployContract(contractName);
 
@@ -31,8 +45,10 @@ async function deployContractName(tag: string,contractName: string) {
 
 async function main() {
   // await deployLock();
-  await deployContractName("T1", "BasicMath");
-  await deployContractName("T2", "ControlStructures");
+  // await deployContractName("T1", "BasicMath");
+  // await deployContractName("T2", "ControlStructures");
+  // await deployContractName("T3", "EmployeeStorage");
+  await deployEmployeePat("T3", "EmployeeStorage");
 
 }
 
