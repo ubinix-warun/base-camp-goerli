@@ -50,51 +50,49 @@ describe("T2: ControlStructures", function () {
 // "Splat" if none of the above conditions are true
 
     describe("FizzBuzz", function () {
-        describe("Validations", function () {
-            it("Should return Fizz when given parameters are 3", async function () {
-                const { controlStructures } = await loadFixture(deployControlStructuresFixture);
+        it("Should return Fizz when given parameters are 3", async function () {
+            const { controlStructures } = await loadFixture(deployControlStructuresFixture);
 
-                const  r  = await controlStructures.fizzBuzz(3);
+            const  r  = await controlStructures.fizzBuzz(3);
 
-                expect(r).to.be.not.undefined;
-                expect(r).to.be.not.null;
-                expect(r).to.be.not.NaN;
-                expect(r).to.equal("Fizz");
+            expect(r).to.be.not.undefined;
+            expect(r).to.be.not.null;
+            expect(r).to.be.not.NaN;
+            expect(r).to.equal("Fizz");
 
-            });
-            it("Should return Buzz when given parameters are 5", async function () {
-                const { controlStructures } = await loadFixture(deployControlStructuresFixture);
+        });
+        it("Should return Buzz when given parameters are 5", async function () {
+            const { controlStructures } = await loadFixture(deployControlStructuresFixture);
 
-                const  r  = await controlStructures.fizzBuzz(5);
+            const  r  = await controlStructures.fizzBuzz(5);
 
-                expect(r).to.be.not.undefined;
-                expect(r).to.be.not.null;
-                expect(r).to.be.not.NaN;
-                expect(r).to.equal("Buzz");
+            expect(r).to.be.not.undefined;
+            expect(r).to.be.not.null;
+            expect(r).to.be.not.NaN;
+            expect(r).to.equal("Buzz");
 
-            });
-            it("Should return FizzBuzz when given parameters are 15", async function () {
-                const { controlStructures } = await loadFixture(deployControlStructuresFixture);
+        });
+        it("Should return FizzBuzz when given parameters are 15", async function () {
+            const { controlStructures } = await loadFixture(deployControlStructuresFixture);
 
-                const  r  = await controlStructures.fizzBuzz(15);
+            const  r  = await controlStructures.fizzBuzz(15);
 
-                expect(r).to.be.not.undefined;
-                expect(r).to.be.not.null;
-                expect(r).to.be.not.NaN;
-                expect(r).to.equal("FizzBuzz");
+            expect(r).to.be.not.undefined;
+            expect(r).to.be.not.null;
+            expect(r).to.be.not.NaN;
+            expect(r).to.equal("FizzBuzz");
 
-            });
-            it("Should return Splat when given parameters are 1", async function () {
-                const { controlStructures } = await loadFixture(deployControlStructuresFixture);
+        });
+        it("Should return Splat when given parameters are 1", async function () {
+            const { controlStructures } = await loadFixture(deployControlStructuresFixture);
 
-                const  r  = await controlStructures.fizzBuzz(1);
+            const  r  = await controlStructures.fizzBuzz(1);
 
-                expect(r).to.be.not.undefined;
-                expect(r).to.be.not.null;
-                expect(r).to.be.not.NaN;
-                expect(r).to.equal("Splat");
+            expect(r).to.be.not.undefined;
+            expect(r).to.be.not.null;
+            expect(r).to.be.not.NaN;
+            expect(r).to.equal("Splat");
 
-            });
         });
 
     });
@@ -110,123 +108,121 @@ describe("T2: ControlStructures", function () {
 // If _time is between 1800 and 2199, return "Evening!"
 
     describe("doNotDisturb", function () {
-        describe("Validations", function () {
-            it("Should return AfterHours(3) when given parameters are 3", async function () {
-                const { controlStructures } = await loadFixture(deployControlStructuresFixture);
+        it("Should return AfterHours(3) when given parameters are 3", async function () {
+            const { controlStructures } = await loadFixture(deployControlStructuresFixture);
 
-                try {
-                    const  r  = await controlStructures.doNotDisturb(3);
-                    expect(r).to.be.not.undefined;
-                    expect(r).to.be.not.null;
-                    expect(r).to.be.not.NaN;
-                    expect(r).to.be.not.empty;
-
-                } catch(error: any) {
-                    expect(error.message).to.equal(
-                        `${customRevertErrorMessage} reverted with custom error 'AfterHours(3)'`
-                    )
-                }
-
-            });
-            it("Should return AfterHours(2300) when given parameters are 2300", async function () {
-                const { controlStructures } = await loadFixture(deployControlStructuresFixture);
-
-                try {
-                    const  r  = await controlStructures.doNotDisturb(2300);
-                    expect(r).to.be.not.undefined;
-                    expect(r).to.be.not.null;
-                    expect(r).to.be.not.NaN;;
-                    expect(r).to.be.not.empty;
-
-                } catch(error: any) {
-                    expect(error.message).to.equal(
-                        `${customRevertErrorMessage} reverted with custom error 'AfterHours(2300)'`
-                    )
-                }
-
-            });
-            it("Should return reverted with reason string 'At lunch!' when given parameters are 1210", async function () {
-                const { controlStructures } = await loadFixture(deployControlStructuresFixture);
-            
-                try {
-                    const  r  = await controlStructures.doNotDisturb(1210);
-                    expect(r).to.be.not.undefined;
-                    expect(r).to.be.not.null;
-                    expect(r).to.be.not.NaN;;
-                    expect(r).to.be.not.empty;
-
-                } catch(error: any) {
-                    expect(error.message).to.equal(
-                        `${customRevertErrorMessage} reverted with reason string 'At lunch!'`
-                    )
-                }
-
-            });
-            it("Should return 'Morning!' when given parameters are 1000", async function () {
-                const { controlStructures } = await loadFixture(deployControlStructuresFixture);
-
-                const  r  = await controlStructures.doNotDisturb(1000);
+            try {
+                const  r  = await controlStructures.doNotDisturb(3);
                 expect(r).to.be.not.undefined;
                 expect(r).to.be.not.null;
-                expect(r).to.be.not.NaN;;
-                expect(r).to.equal('Morning!');
+                expect(r).to.be.not.NaN;
+                expect(r).to.be.not.empty;
 
-            });
-            it("Should return 'Afternoon!' when given parameters are 1300", async function () {
-                const { controlStructures } = await loadFixture(deployControlStructuresFixture);
-
-                const  r  = await controlStructures.doNotDisturb(1300);
-                expect(r).to.be.not.undefined;
-                expect(r).to.be.not.null;
-                expect(r).to.be.not.NaN;;
-                expect(r).to.equal('Afternoon!');
-
-            });
-            it("Should return 'Evening!' when given parameters are 1900", async function () {
-                const { controlStructures } = await loadFixture(deployControlStructuresFixture);
-
-                const  r  = await controlStructures.doNotDisturb(1900);
-                expect(r).to.be.not.undefined;
-                expect(r).to.be.not.null;
-                expect(r).to.be.not.NaN;;
-                expect(r).to.equal('Evening!');
-
-            });
-
-            it("Should return reverted with panic code 0x1 (Assertion error) when given parameters are 2500", async function () {
-                const { controlStructures } = await loadFixture(deployControlStructuresFixture);
-
-                try {
-                    const  r  = await controlStructures.doNotDisturb(2500);
-                    expect(r).to.be.not.undefined;
-                    expect(r).to.be.not.null;
-                    expect(r).to.be.not.NaN;;
-                    expect(r).to.be.not.empty;
-
-                } catch(error: any) {
-                    expect(error.message).to.equal(
-                        `${customRevertErrorMessage} reverted with panic code 0x1 (Assertion error)`
-                    )
-                }
-            });
-            it("Should assert 'value out-of-bounds' when given parameters are -1", async function () {
-                const { controlStructures } = await loadFixture(deployControlStructuresFixture);
-
-                try {
-                    const  r  = await controlStructures.doNotDisturb(-1);
-                    expect(r).to.be.not.undefined;
-                    expect(r).to.be.not.null;
-                    expect(r).to.be.not.NaN;;
-                    expect(r).to.be.not.empty;
-
-                } catch(error: any) {
-                    expect(error.message.startsWith("value out-of-bounds (argument=\"_time\", value=-1")).to.be.true;
-                }
-            });
-
-            // Test Overflow!
+            } catch(error: any) {
+                expect(error.message).to.equal(
+                    `${customRevertErrorMessage} reverted with custom error 'AfterHours(3)'`
+                )
+            }
 
         });
+        it("Should return AfterHours(2300) when given parameters are 2300", async function () {
+            const { controlStructures } = await loadFixture(deployControlStructuresFixture);
+
+            try {
+                const  r  = await controlStructures.doNotDisturb(2300);
+                expect(r).to.be.not.undefined;
+                expect(r).to.be.not.null;
+                expect(r).to.be.not.NaN;;
+                expect(r).to.be.not.empty;
+
+            } catch(error: any) {
+                expect(error.message).to.equal(
+                    `${customRevertErrorMessage} reverted with custom error 'AfterHours(2300)'`
+                )
+            }
+
+        });
+        it("Should return reverted with reason string 'At lunch!' when given parameters are 1210", async function () {
+            const { controlStructures } = await loadFixture(deployControlStructuresFixture);
+        
+            try {
+                const  r  = await controlStructures.doNotDisturb(1210);
+                expect(r).to.be.not.undefined;
+                expect(r).to.be.not.null;
+                expect(r).to.be.not.NaN;;
+                expect(r).to.be.not.empty;
+
+            } catch(error: any) {
+                expect(error.message).to.equal(
+                    `${customRevertErrorMessage} reverted with reason string 'At lunch!'`
+                )
+            }
+
+        });
+        it("Should return 'Morning!' when given parameters are 1000", async function () {
+            const { controlStructures } = await loadFixture(deployControlStructuresFixture);
+
+            const  r  = await controlStructures.doNotDisturb(1000);
+            expect(r).to.be.not.undefined;
+            expect(r).to.be.not.null;
+            expect(r).to.be.not.NaN;;
+            expect(r).to.equal('Morning!');
+
+        });
+        it("Should return 'Afternoon!' when given parameters are 1300", async function () {
+            const { controlStructures } = await loadFixture(deployControlStructuresFixture);
+
+            const  r  = await controlStructures.doNotDisturb(1300);
+            expect(r).to.be.not.undefined;
+            expect(r).to.be.not.null;
+            expect(r).to.be.not.NaN;;
+            expect(r).to.equal('Afternoon!');
+
+        });
+        it("Should return 'Evening!' when given parameters are 1900", async function () {
+            const { controlStructures } = await loadFixture(deployControlStructuresFixture);
+
+            const  r  = await controlStructures.doNotDisturb(1900);
+            expect(r).to.be.not.undefined;
+            expect(r).to.be.not.null;
+            expect(r).to.be.not.NaN;;
+            expect(r).to.equal('Evening!');
+
+        });
+
+        it("Should return reverted with panic code 0x1 (Assertion error) when given parameters are 2500", async function () {
+            const { controlStructures } = await loadFixture(deployControlStructuresFixture);
+
+            try {
+                const  r  = await controlStructures.doNotDisturb(2500);
+                expect(r).to.be.not.undefined;
+                expect(r).to.be.not.null;
+                expect(r).to.be.not.NaN;;
+                expect(r).to.be.not.empty;
+
+            } catch(error: any) {
+                expect(error.message).to.equal(
+                    `${customRevertErrorMessage} reverted with panic code 0x1 (Assertion error)`
+                )
+            }
+        });
+        it("Should assert 'value out-of-bounds' when given parameters are -1", async function () {
+            const { controlStructures } = await loadFixture(deployControlStructuresFixture);
+
+            try {
+                const  r  = await controlStructures.doNotDisturb(-1);
+                expect(r).to.be.not.undefined;
+                expect(r).to.be.not.null;
+                expect(r).to.be.not.NaN;;
+                expect(r).to.be.not.empty;
+
+            } catch(error: any) {
+                expect(error.message.startsWith("value out-of-bounds (argument=\"_time\", value=-1")).to.be.true;
+            }
+        });
+
+        // Test Overflow!
+
 
     });
 

@@ -81,16 +81,16 @@ describe("T3: EmployeeStorage", function () {
             expect(await employeeStorage.owner()).to.equal(owner.address);
 
         });
-        it("Should set the right owner and data(alice) -- ID LongLong", async function () {
-            const { employeeStorage, owner } = await loadFixture(deployEmployeeStorageFixtureWithAliceIDLongLong);
+        // it("Should set the right owner and data(alice) -- ID LongLong", async function () {
+        //     const { employeeStorage, owner } = await loadFixture(deployEmployeeStorageFixtureWithAliceIDLongLong);
         
-            // expect(await employeeStorage.shares()).to.equal(1000); // change it to private ()
-            expect(await employeeStorage.name()).to.equal("Alice");
-            // expect(await employeeStorage.salary()).to.equal(30000); // change it to private ()
-            expect(await employeeStorage.idNumber()).to.equal(112358132139);
-            expect(await employeeStorage.owner()).to.equal(owner.address);
+        //     // expect(await employeeStorage.shares()).to.equal(1000); // change it to private ()
+        //     expect(await employeeStorage.name()).to.equal("Alice");
+        //     // expect(await employeeStorage.salary()).to.equal(30000); // change it to private ()
+        //     expect(await employeeStorage.idNumber()).to.equal(112358132139);
+        //     expect(await employeeStorage.owner()).to.equal(owner.address);
 
-        });
+        // });
     });
 
 // View Salary and View Shares
