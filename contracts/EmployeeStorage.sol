@@ -9,9 +9,9 @@ contract EmployeeStorage {
     // Create a custom error for TooManyShares
     error TooManyShares(uint256 newShares);
 
-    uint256 public idNumber;
     uint24 private salary;
     uint16 private shares;
+    uint256 public idNumber;
     string public name;
 
     address public owner;

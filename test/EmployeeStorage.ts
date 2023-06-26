@@ -52,6 +52,16 @@ describe("T3: EmployeeStorage", function () {
         const EmployeeStorage = await ethers.getContractFactory("EmployeeStorage");
         const employeeStorage = await EmployeeStorage.deploy(1000, "Alice", 30000, 112358132139);
 
+        // console.log(await employeeStorage.checkForPacking(0))
+        // console.log(await employeeStorage.checkForPacking(1))
+        // console.log(await employeeStorage.checkForPacking(2))
+        // console.log(await employeeStorage.checkForPacking(3))
+
+        // 16777246000n
+        // 112358132139n
+        // 29591882003946055267496362720332152801745358025600646668181088590235118338058n
+        // 1390849295786071768276380950238675083608645509734n
+
         return { employeeStorage, owner, otherAccount };
     }
 

@@ -48,7 +48,8 @@ async function main() {
   // await deployContractName("T1", "BasicMath");
   // await deployContractName("T2", "ControlStructures");
   // await deployContractName("T3", "EmployeeStorage");
-  await deployEmployeePat("T3", "EmployeeStorage");
+  // await deployEmployeePat("T3", "EmployeeStorage");
+  await deployContractName("T4", "ArraysExercise");
 
 }
 

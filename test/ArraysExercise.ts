@@ -72,48 +72,72 @@ describe("T4: ArraysExercise", function () {
 // Reset Numbers 
 // Write a public function called resetNumbers that resets the numbers array to its initial value, holding the numbers from 1-10.
 
-    it("Should return default array[] when call resetNumbers(), then getNumbers()", async function () {
-        const { arraysExercise } = await loadFixture(deployArraysExerciseFixture);
+        it("Should return default array[] when call resetNumbers(), then getNumbers()", async function () {
+            const { arraysExercise } = await loadFixture(deployArraysExerciseFixture);
 
-        await arraysExercise.resetNumbers();
-        
-        const  r  = await arraysExercise.getNumbers();
+            await arraysExercise.resetNumbers();
+            
+            const  r  = await arraysExercise.getNumbers();
 
-        expect(r).to.be.not.undefined;
-        expect(r).to.be.not.null;
-        expect(r).to.be.not.NaN;
-        expect(r).to.eql(defaultArray);
+            expect(r).to.be.not.undefined;
+            expect(r).to.be.not.null;
+            expect(r).to.be.not.NaN;
+            expect(r).to.eql(defaultArray);
 
-    });
+        });
 
 // Append to an Existing Array ----
 // Write a function called appendToNumbers that takes a uint[] calldata array 
 //  called _toAppend, and adds that array to the storage array called numbers, already present in the starter.
 
-    it("Should return appened array[] when call appendToNumbers(), then getNumbers()", async function () {
-        const { arraysExercise } = await loadFixture(deployArraysExerciseFixture);
+        it("Should return appened array[] when call appendToNumbers(), then getNumbers()", async function () {
+            const { arraysExercise } = await loadFixture(deployArraysExerciseFixture);
 
-        await arraysExercise.appendToNumbers(appendArray);
-        
-        defaultArray.push(...appendArray);
-        
-        const  r  = await arraysExercise.getNumbers();
+            await arraysExercise.appendToNumbers(appendArray);
+            
+            var newArray = []
+            newArray.push(...defaultArray);
+            newArray.push(...appendArray);
+            
+            const  r  = await arraysExercise.getNumbers();
 
-        expect(r).to.be.not.undefined;
-        expect(r).to.be.not.null;
-        expect(r).to.be.not.NaN;
-        expect(r).to.eql(defaultArray);
+            expect(r).to.be.not.undefined;
+            expect(r).to.be.not.null;
+            expect(r).to.be.not.NaN;
+            expect(r).to.eql(newArray);
 
-    });
+        });
 
-// Timestamp Saving ---------------
+// Timestamp Saving 
 // At the contract level, add an address array called senders and a uint array 
 // called timestamps.
 
 // Write a function called saveTimestamp that takes a uint 
 // called _unixTimestamp as an argument. When called, it should add the address of the caller to the end of senders and the _unixTimeStamp to timestamps.
 
-// Timestamp Filtering -----------
+        it("Should add sender timestamp to contract, when call saveTimeStamp", async function () {
+            const { arraysExercise } = await loadFixture(deployArraysExerciseFixture);
+
+            await arraysExercise.saveTimestamp(946702800);
+            
+        });
+
+        // it("Should add sender timestamp to contract, when call saveTimeStamp", async function () {
+        //     const { arraysExercise } = await loadFixture(deployArraysExerciseFixture);
+
+        //     await arraysExercise.saveTimestamp(946702800);
+                    
+        //     const  r  =  arraysExercise.senders;
+        //     console.log(r)
+
+        //     expect(r).to.be.not.undefined;
+        //     expect(r).to.be.not.null;
+        //     expect(r).to.be.not.NaN;
+        //     expect(r).to.equal(1);
+
+        // });
+
+// Timestamp Filtering 
 // Write a function called afterY2K that takes no arguments.
 //  When called, it should return two arrays.
 
@@ -122,9 +146,42 @@ describe("T4: ArraysExercise", function () {
 
 // The second should return a list of senders addresses corresponding to those timestamps.
 
-// Resets ------------------------
+        it("Should return senders are more recent than y2k, when call afterY2K", async function () {
+            const { arraysExercise } = await loadFixture(deployArraysExerciseFixture);
+
+            await arraysExercise.saveTimestamp(946702801);
+            
+            const [t, s] = await arraysExercise.afterY2K();      
+
+            expect(s).to.be.not.undefined;
+            expect(s).to.be.not.null;
+            expect(s).to.be.not.NaN;
+            expect(s.length).to.equal(t.length);
+
+        });
+
+// Resets 
 // Add public functions called resetSenders and 
 //  resetTimestamps that reset those storage variables.
+
+        it("Should return reset Sender/Timestamp, when call resets", async function () {
+            const { arraysExercise } = await loadFixture(deployArraysExerciseFixture);
+            
+            await arraysExercise.saveTimestamp(946702801);
+            
+            await arraysExercise.resetSenders();
+            await arraysExercise.resetTimestamps();
+            
+            await arraysExercise.saveTimestamp(946702801);
+            
+            const [t, s] = await arraysExercise.afterY2K();
+                    
+            expect(s).to.be.not.undefined;
+            expect(s).to.be.not.null;
+            expect(s).to.be.not.NaN;
+            expect(s.length).to.equal(t.length);
+
+        });
 
     });
 
