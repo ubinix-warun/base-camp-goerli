@@ -19,6 +19,8 @@ npx hardhat verify --network base-goerli <deployed address>
 >> The contract <deployed address> has already been verified.
 >> https://goerli.basescan.org/address/<deployed address>#code
 
+npm run lint
+npm run prettier
 
 ```
 
@@ -38,5 +40,10 @@ npm install mocha -g
 npm run test
 
 npm install --save-dev solidity-coverage
+
+npm install --save-dev prettier prettier-plugin-solidity
+
+npm run lint
+npm run prettier
 
 ```

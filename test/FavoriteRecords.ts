@@ -94,11 +94,11 @@ describe("T5: FavoriteRecords", function () {
 
         it("Should add Record and got 'Rumours' when call addRecord()", async function () {
 
-            const { favoriteRecords } = await loadFixture(deployFavoriteRecordsWithIterableMapping);
+            const { favoriteRecords, owner } = await loadFixture(deployFavoriteRecordsWithIterableMapping);
 
             await favoriteRecords.addRecord("Rumours");
 
-            const  r  = await favoriteRecords.getUserRecords();
+            const  r  = await favoriteRecords.getUserRecords(owner);
 
             expect(r).to.be.not.undefined;
             expect(r).to.be.not.null;
@@ -110,11 +110,11 @@ describe("T5: FavoriteRecords", function () {
 
         it("Should add Record and got !'Rumours' when call addRecord()", async function () {
 
-            const { favoriteRecords } = await loadFixture(deployFavoriteRecordsWithIterableMapping);
+            const { favoriteRecords, owner } = await loadFixture(deployFavoriteRecordsWithIterableMapping);
 
             await favoriteRecords.addRecord("Rumours");
 
-            const  r  = await favoriteRecords.getUserRecords();
+            const  r  = await favoriteRecords.getUserRecords(owner);
 
             expect(r).to.be.not.undefined;
             expect(r).to.be.not.null;
@@ -129,11 +129,11 @@ describe("T5: FavoriteRecords", function () {
 
         it("Should return allFavorites got Rumours when call getUserFavorites()", async function () {
 
-            const { favoriteRecords } = await loadFixture(deployFavoriteRecordsWithIterableMapping);
+            const { favoriteRecords, owner } = await loadFixture(deployFavoriteRecordsWithIterableMapping);
 
             await favoriteRecords.addRecord("Rumours");
 
-            const  r  = await favoriteRecords.getUserFavorites();
+            const  r  = await favoriteRecords.getUserFavorites(owner);
 
 
             expect(r).to.be.not.undefined;
@@ -146,11 +146,11 @@ describe("T5: FavoriteRecords", function () {
 
         it("Should return allFavorites not got Thriller when call getUserFavorites()", async function () {
 
-            const { favoriteRecords } = await loadFixture(deployFavoriteRecordsWithIterableMapping);
+            const { favoriteRecords, owner } = await loadFixture(deployFavoriteRecordsWithIterableMapping);
 
             await favoriteRecords.addRecord("Rumours");
 
-            const  r  = await favoriteRecords.getUserFavorites();
+            const  r  = await favoriteRecords.getUserFavorites(owner);
 
             expect(r).to.be.not.undefined;
             expect(r).to.be.not.null;
@@ -165,12 +165,12 @@ describe("T5: FavoriteRecords", function () {
 
         it("Should return [] when call resetUserFavorites()", async function () {
 
-            const { favoriteRecords } = await loadFixture(deployFavoriteRecordsWithIterableMapping);
+            const { favoriteRecords, owner } = await loadFixture(deployFavoriteRecordsWithIterableMapping);
 
             await favoriteRecords.addRecord("Rumours");
             await favoriteRecords.resetUserFavorites();
 
-            const  r  = await favoriteRecords.getUserRecords();
+            const  r  = await favoriteRecords.getUserRecords(owner);
 
             expect(r).to.be.not.undefined;
             expect(r).to.be.not.null;

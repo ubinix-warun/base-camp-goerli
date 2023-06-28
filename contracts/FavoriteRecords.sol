@@ -14,11 +14,17 @@ library IterableMapping {
         mapping(string => bool) inserted;
     }
 
-    function get(Map storage map, string memory key) public view returns (bool) {
+    function get(
+        Map storage map,
+        string memory key
+    ) public view returns (bool) {
         return map.values[key];
     }
 
-    function getKeyAtIndex(Map storage map, uint index) public view returns (string memory) {
+    function getKeyAtIndex(
+        Map storage map,
+        uint index
+    ) public view returns (string memory) {
         return map.keys[index];
     }
 
@@ -60,33 +66,41 @@ library IterableMapping {
     }
 
     function clear(Map storage map) public {
-        for(uint i = 0; i < map.keys.length; i++) {
-            remove(map,map.keys[i]);
+        for (uint i = 0; i < map.keys.length; i++) {
+            remove(map, map.keys[i]);
         }
     }
 
+    function isExistsKey(
+        Map storage map,
+        string memory key
+    ) public view returns (bool) {
+        if (!map.inserted[key]) {
+            return false;
+        }
+        return true;
+    }
 }
 
 contract FavoriteRecords {
-
     using IterableMapping for IterableMapping.Map;
 
     IterableMapping.Map private approvedRecords;
-    mapping (address => IterableMapping.Map) private userFavorites;
+    mapping(address => IterableMapping.Map) private userFavorites;
     address[] addressesOfFavs;
-    
+
     address public owner;
 
-    constructor(){
-        approvedRecords.set("Thriller",true);
-        approvedRecords.set("Back in Black",true);
-        approvedRecords.set("The Bodyguard",true);
-        approvedRecords.set("The Dark Side of the Moon",true);
-        approvedRecords.set("Their Greatest Hits (1971-1975)",true);
-        approvedRecords.set("Hotel California",true);
-        approvedRecords.set("Come On Over",true);
-        approvedRecords.set("Rumours",true);
-        approvedRecords.set("Saturday Night Fever",true);
+    constructor() {
+        approvedRecords.set("Thriller", true);
+        approvedRecords.set("Back in Black", true);
+        approvedRecords.set("The Bodyguard", true);
+        approvedRecords.set("The Dark Side of the Moon", true);
+        approvedRecords.set("Their Greatest Hits (1971-1975)", true);
+        approvedRecords.set("Hotel California", true);
+        approvedRecords.set("Come On Over", true);
+        approvedRecords.set("Rumours", true);
+        approvedRecords.set("Saturday Night Fever", true);
 
         owner = payable(msg.sender);
     }
@@ -94,7 +108,7 @@ contract FavoriteRecords {
     function getApprovedRecords() public view returns (string[] memory) {
         string[] memory allRecords = new string[](approvedRecords.size());
 
-        for(uint i = 0; i < allRecords.length; i++) {
+        for (uint i = 0; i < allRecords.length; i++) {
             allRecords[i] = approvedRecords.getKeyAtIndex(i);
         }
 
@@ -102,50 +116,32 @@ contract FavoriteRecords {
     }
 
     function addRecord(string memory _record) public {
-        
-        if(approvedRecords.get(_record)) // exists
+        if (approvedRecords.isExistsKey(_record)) // exists
         {
-            if(userFavorites[msg.sender].size() == 0)
-            {
+            if (userFavorites[msg.sender].size() == 0) {
                 addressesOfFavs.push(msg.sender);
             }
             userFavorites[msg.sender].set(_record, true);
         }
-
     }
 
-    function getUserFavorites() public view returns (string[] memory) {
-        string[] memory tmpFav = new string[](approvedRecords.size());
-
-        uint w = 0;
-        for(uint i = 0; i < addressesOfFavs.length; i++) {
-            string[] memory userFavourites = userFavorites[addressesOfFavs[i]].getKeys();
-            for(uint j = 0; j < userFavourites.length; j++) {
-                tmpFav[w]=userFavourites[j]; // May be dup!
-                w++;
-            }
-        }
-
-        string[] memory allFavorites = new string[](w);
-        for(uint i = 0; i < w; i++) {
-            allFavorites[i]=tmpFav[i];
-        }
-
-        return allFavorites;
+    function getUserFavorites(address user) public view returns (string[] memory) {
+        return getUserRecords(user);
     }
-    
-    function getUserRecords() public view returns (string[] memory) {
-        string[] memory userRecords = new string[](userFavorites[msg.sender].size());
 
-        for(uint i = 0; i < userFavorites[msg.sender].size(); i++) {
-            userRecords[i] = userFavorites[msg.sender].getKeyAtIndex(i);
+    function getUserRecords(address user) public view returns (string[] memory) {
+        string[] memory userRecords = new string[](
+            userFavorites[user].size()
+        );
+
+        for (uint i = 0; i < userFavorites[user].size(); i++) {
+            userRecords[i] = userFavorites[user].getKeyAtIndex(i);
         }
 
         return userRecords;
     }
 
-    function resetUserFavorites() public  {
+    function resetUserFavorites() public {
         userFavorites[msg.sender].clear();
     }
-
 }

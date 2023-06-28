@@ -76,6 +76,9 @@ async function main() {
   // await deployContractName("T4", "ArraysExercise");
   await deployFavoriteRecords("T5", "FavoriteRecords");
 
+  // await deployContractName("T9", "ErrorTriageExercise");
+
+
 }
 
 // We recommend this pattern to be able to use async/await everywhere
