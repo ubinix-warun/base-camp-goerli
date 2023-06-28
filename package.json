@@ -6,7 +6,9 @@
   "scripts": {
     "test": "mocha",
     "prettier": "prettier --write 'contracts/**/*.sol'",
-    "lint": "prettier --list-different 'contracts/**/*.sol'"
+    "lint": "prettier --list-different 'contracts/**/*.sol'",
+    "eslint": "eslint test/**/*.ts --ext .ts",
+    "eslint-fix": "eslint test/**/*.ts --ext .ts --fix"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +16,10 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^3.0.0",
     "@nomicfoundation/hardhat-verify": "^1.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
     "dotenv": "^16.1.4",
+    "eslint": "^8.43.0",
     "hardhat": "^2.15.0",
     "prettier": "^2.8.8",
     "prettier-plugin-solidity": "^1.1.3",

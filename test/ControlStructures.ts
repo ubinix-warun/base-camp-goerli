@@ -132,7 +132,7 @@ describe("T2: ControlStructures", function () {
                 const  r  = await controlStructures.doNotDisturb(2300);
                 expect(r).to.be.not.undefined;
                 expect(r).to.be.not.null;
-                expect(r).to.be.not.NaN;;
+                expect(r).to.be.not.NaN;
                 expect(r).to.be.not.empty;
 
             } catch(error: any) {
@@ -149,7 +149,7 @@ describe("T2: ControlStructures", function () {
                 const  r  = await controlStructures.doNotDisturb(1210);
                 expect(r).to.be.not.undefined;
                 expect(r).to.be.not.null;
-                expect(r).to.be.not.NaN;;
+                expect(r).to.be.not.NaN;
                 expect(r).to.be.not.empty;
 
             } catch(error: any) {
@@ -165,7 +165,7 @@ describe("T2: ControlStructures", function () {
             const  r  = await controlStructures.doNotDisturb(1000);
             expect(r).to.be.not.undefined;
             expect(r).to.be.not.null;
-            expect(r).to.be.not.NaN;;
+            expect(r).to.be.not.NaN;
             expect(r).to.equal('Morning!');
 
         });
@@ -175,7 +175,7 @@ describe("T2: ControlStructures", function () {
             const  r  = await controlStructures.doNotDisturb(1300);
             expect(r).to.be.not.undefined;
             expect(r).to.be.not.null;
-            expect(r).to.be.not.NaN;;
+            expect(r).to.be.not.NaN;
             expect(r).to.equal('Afternoon!');
 
         });
@@ -185,7 +185,7 @@ describe("T2: ControlStructures", function () {
             const  r  = await controlStructures.doNotDisturb(1900);
             expect(r).to.be.not.undefined;
             expect(r).to.be.not.null;
-            expect(r).to.be.not.NaN;;
+            expect(r).to.be.not.NaN;
             expect(r).to.equal('Evening!');
 
         });
@@ -197,7 +197,7 @@ describe("T2: ControlStructures", function () {
                 const  r  = await controlStructures.doNotDisturb(2500);
                 expect(r).to.be.not.undefined;
                 expect(r).to.be.not.null;
-                expect(r).to.be.not.NaN;;
+                expect(r).to.be.not.NaN;
                 expect(r).to.be.not.empty;
 
             } catch(error: any) {
@@ -213,7 +213,7 @@ describe("T2: ControlStructures", function () {
                 const  r  = await controlStructures.doNotDisturb(-1);
                 expect(r).to.be.not.undefined;
                 expect(r).to.be.not.null;
-                expect(r).to.be.not.NaN;;
+                expect(r).to.be.not.NaN;
                 expect(r).to.be.not.empty;
 
             } catch(error: any) {

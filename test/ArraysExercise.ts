@@ -95,7 +95,7 @@ describe("T4: ArraysExercise", function () {
 
             await arraysExercise.appendToNumbers(appendArray);
             
-            var newArray = []
+            const newArray = []
             newArray.push(...defaultArray);
             newArray.push(...appendArray);
             

@@ -65,20 +65,20 @@ describe("T3: EmployeeStorage", function () {
         return { employeeStorage, owner, otherAccount };
     }
 
-    async function deployEmployeeStorageFixtureWithAliceIDLongLong() {
+    // async function deployEmployeeStorageFixtureWithAliceIDLongLong() {
 
-        // Contracts are deployed using the first signer/account by default
-        const [owner, otherAccount] = await ethers.getSigners();
+    //     // Contracts are deployed using the first signer/account by default
+    //     const [owner, otherAccount] = await ethers.getSigners();
 
-        const EmployeeStorage = await ethers.getContractFactory("EmployeeStorage");
-        const employeeStorage = await EmployeeStorage.deploy(1000, "Alice", 30000, 1227501171951206556999188047990405053689155133721);
+    //     const EmployeeStorage = await ethers.getContractFactory("EmployeeStorage");
+    //     const employeeStorage = await EmployeeStorage.deploy(1000, "Alice", 30000, 1227501171951206556999188047990405053689155133721);
         
-        // ----------- = 1227501171951206556999188047990405053689155133721
-        // Max UINT128 = 340282366920938463463374607431768211455
-        // Max UINT256 = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+    //     // ----------- = 1227501171951206556999188047990405053689155133721
+    //     // Max UINT128 = 340282366920938463463374607431768211455
+    //     // Max UINT256 = 115792089237316195423570985008687907853269984665640564039457584007913129639935
 
-        return { employeeStorage, owner, otherAccount };
-    }
+    //     return { employeeStorage, owner, otherAccount };
+    // }
 
     describe("Deployment", function () {
         it("Should set the right owner and data(alice) -- Normal", async function () {

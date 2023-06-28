@@ -46,4 +46,6 @@ npm install --save-dev prettier prettier-plugin-solidity
 npm run lint
 npm run prettier
 
+npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+
 ```
