@@ -37,6 +37,7 @@ contract ArraysExercise {
         timestamps.push(_unixTimestamp);
     }
 
+    // This function use More more gas!
     function afterY2K() public view returns ( uint[] memory, address[] memory){
 
         uint arrSize = 0;

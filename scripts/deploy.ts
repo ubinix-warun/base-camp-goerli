@@ -33,6 +33,30 @@ async function deployEmployeePat(tag: string,contractName: string) {
 
 }
 
+async function deployFavoriteRecords(tag: string,contractName: string) {
+
+  const signers = await ethers.getSigners();
+
+  const IterableMapping = await ethers.getContractFactory("IterableMapping");
+  const iterableMapping = await IterableMapping.deploy();
+
+  const FavoriteRecords = await ethers.getContractFactory("FavoriteRecords",{
+    signer: signers[0],
+    libraries: {
+        IterableMapping: iterableMapping.target,
+    },
+  });
+  const favoriteRecords = await FavoriteRecords.deploy();
+
+  await favoriteRecords.waitForDeployment();
+
+  console.log(
+    `${tag}: ${contractName} and IMap deployed to ${favoriteRecords.target}`
+  );
+
+}
+
+
 async function deployContractName(tag: string,contractName: string) {
   const contract = await ethers.deployContract(contractName);
 
@@ -49,7 +73,8 @@ async function main() {
   // await deployContractName("T2", "ControlStructures");
   // await deployContractName("T3", "EmployeeStorage");
   // await deployEmployeePat("T3", "EmployeeStorage");
-  await deployContractName("T4", "ArraysExercise");
+  // await deployContractName("T4", "ArraysExercise");
+  await deployFavoriteRecords("T5", "FavoriteRecords");
 
 }
 
