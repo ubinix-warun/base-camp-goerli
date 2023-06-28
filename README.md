@@ -1,6 +1,7 @@
-# Sample Hardhat Project
+# Base 🔵 Camp -- Base Goerli
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+> Base Camp's curriculum has been expertly crafted to equip you with the skills and knowledge needed to build and deploy smart contracts on Base, or any EVM-compatible chain, including Ethereum, Optimism, and many more. Plus, you'll be eligible to earn NFTs as you complete each module, showcasing your mastery of the material.
+
 
 Try running some of the following tasks:
 
@@ -8,7 +9,11 @@ Try running some of the following tasks:
 npx hardhat help
 npx hardhat test
 npx hardhat coverage
+```
 
+### Complie & Deploy to Base Goerli 
+
+```shell
 npx hardhat compile
 npx hardhat run scripts/deploy.ts --network base-goerli
 
@@ -24,28 +29,39 @@ npm run prettier
 
 ```
 
+### Note -- Setup toolkit and libraries
 
 ```shell
+# Hardhat Toolkit.
+
 npm install --save-dev hardhat
 npm install --save-dev @nomicfoundation/hardhat-toolbox
 npm install --save-dev @nomicfoundation/hardhat-verify
-npm install --save-dev dotenv solidity-math
+
+# OpenZeppelin Libraries.
+
+npm install --save-dev dotenv 
+npm install --save-dev solidity-math
+npm install --save-dev solidity-coverage
 
 npm install --save @openzeppelin/contracts
 
-npm install mocha -- save-dev
-npm install chai -- save-dev
+# Test Framework.
+
+npm install mocha --save-dev
+npm install chai --save-dev
 npm install mocha -g
 
 npm run test
 
-npm install --save-dev solidity-coverage
+# Coding Standard.
 
 npm install --save-dev prettier prettier-plugin-solidity
+npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 
 npm run lint
 npm run prettier
-
-npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+npm run eslint
+npm run eslint-fix
 
 ```
