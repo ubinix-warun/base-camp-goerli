@@ -24,8 +24,8 @@ npx hardhat verify --network base-goerli <deployed address>
 >> The contract <deployed address> has already been verified.
 >> https://goerli.basescan.org/address/<deployed address>#code
 
-npm run lint
-npm run prettier
+npm run standard
+npm run format
 
 ```
 
