@@ -31,6 +31,9 @@ npm run format
 
 ### Note -- Setup toolkit and libraries
 
+<details>
+  <summary>Install Hardhat and OpenZeppelin.</summary>
+  
 ```shell
 # Hardhat Toolkit.
 
@@ -45,6 +48,13 @@ npm install --save-dev solidity-math
 npm install --save-dev solidity-coverage
 
 npm install --save @openzeppelin/contracts
+
+```
+</details>
+<details>
+  <summary>Install Mocha-Chai, eslint and prettier (sol).</summary>
+  
+```shell
 
 # Test Framework.
 
@@ -65,3 +75,5 @@ npm run eslint
 npm run eslint-fix
 
 ```
+
+</details>
