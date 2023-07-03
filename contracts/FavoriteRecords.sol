@@ -125,14 +125,16 @@ contract FavoriteRecords {
         }
     }
 
-    function getUserFavorites(address user) public view returns (string[] memory) {
+    function getUserFavorites(
+        address user
+    ) public view returns (string[] memory) {
         return getUserRecords(user);
     }
 
-    function getUserRecords(address user) public view returns (string[] memory) {
-        string[] memory userRecords = new string[](
-            userFavorites[user].size()
-        );
+    function getUserRecords(
+        address user
+    ) public view returns (string[] memory) {
+        string[] memory userRecords = new string[](userFavorites[user].size());
 
         for (uint i = 0; i < userFavorites[user].size(); i++) {
             userRecords[i] = userFavorites[user].getKeyAtIndex(i);

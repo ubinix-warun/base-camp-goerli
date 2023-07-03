@@ -5,7 +5,6 @@ pragma solidity ^0.8.9;
 // import "hardhat/console.sol";
 
 contract EmployeeStorage {
-
     uint16 private shares;
     uint32 private salary;
     string public name;
@@ -37,7 +36,7 @@ contract EmployeeStorage {
 
     // Create a custom error for TooManyShares
     error TooManyShares(uint16 newShares);
-    
+
     function grantShares(uint16 _newShares) public {
         if (_newShares > 5000) {
             revert("Too many shares");

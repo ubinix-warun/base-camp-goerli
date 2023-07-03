@@ -74,8 +74,9 @@ async function main() {
   // await deployContractName("T3", "EmployeeStorage");
   // await deployEmployeePat("T3", "EmployeeStorage");
   // await deployContractName("T4", "ArraysExercise");
-  await deployFavoriteRecords("T5", "FavoriteRecords");
-
+  // await deployFavoriteRecords("T5", "FavoriteRecords");
+  //  T6 -- Adv Fn.
+  // await deployContractName("T7", "GarageManager");
   // await deployContractName("T9", "ErrorTriageExercise");
 
 

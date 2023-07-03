@@ -1,17 +1,19 @@
 {
   "name": "base-camp-goerli",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.1.0",
+  "description": "learning smart contract development and earn NFTs. (Base Goerli)",
   "main": "index.js",
   "scripts": {
+    "standard": "npm run solint & npm run eslint",
+    "format": "npm run prettier & npm run eslint-fix",
     "test": "mocha",
     "prettier": "prettier --write 'contracts/**/*.sol'",
-    "lint": "prettier --list-different 'contracts/**/*.sol'",
+    "solint": "prettier --list-different 'contracts/**/*.sol'",
     "eslint": "eslint test/**/*.ts --ext .ts",
     "eslint-fix": "eslint test/**/*.ts --ext .ts --fix"
   },
   "keywords": [],
-  "author": "",
+  "author": "Warun",
   "license": "ISC",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^3.0.0",
