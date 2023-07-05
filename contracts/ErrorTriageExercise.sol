@@ -3,6 +3,12 @@
 pragma solidity ^0.8.17;
 
 contract ErrorTriageExercise {
+    address public owner;
+
+    constructor() {
+        owner = payable(msg.sender);
+    }
+
     /**
      * Finds the difference between each uint with it's neighbor (a to b, b to c, etc.)
      * and returns a uint array with the absolute integer difference of each pairing.
@@ -13,11 +19,19 @@ contract ErrorTriageExercise {
         uint _c,
         uint _d
     ) public pure returns (uint[] memory) {
+        int[] memory intResults = new int[](3);
         uint[] memory results = new uint[](3);
 
-        results[0] = _a - _b;
-        results[1] = _b - _c;
-        results[2] = _c - _d;
+        intResults[0] = int(_a) - int(_b);
+        intResults[1] = int(_b) - int(_c);
+        intResults[2] = int(_c) - int(_d);
+
+        for (uint i = 0; i < 3; i++) {
+            intResults[i] = intResults[i] < 0
+                ? intResults[i] * -1
+                : intResults[i];
+            results[i] = uint(intResults[i]);
+        }
 
         return results;
     }
@@ -30,7 +44,7 @@ contract ErrorTriageExercise {
         uint _base,
         int _modifier
     ) public pure returns (uint) {
-        return _base + uint(_modifier);
+        return uint(int(_base) + _modifier);
     }
 
     /**
@@ -41,8 +55,9 @@ contract ErrorTriageExercise {
 
     function popWithReturn() public returns (uint) {
         uint index = arr.length - 1;
-        delete arr[index];
-        return arr[index];
+        uint value = arr[index];
+        arr.pop();
+        return value;
     }
 
     // The utility functions below are working as expected

@@ -13,18 +13,21 @@ abstract contract Employee {
         managerId = _managerId;
     }
 
-    function getAnnualCost() public virtual view  returns(uint256);
+    function getAnnualCost() public view virtual returns (uint256);
 }
 
 contract Salaried is Employee {
     uint public annualSalary;
 
-    constructor(uint _idNumber, uint _managerId, uint _annualSalary) 
-        Employee(_idNumber, _managerId) {
+    constructor(
+        uint _idNumber,
+        uint _managerId,
+        uint _annualSalary
+    ) Employee(_idNumber, _managerId) {
         annualSalary = _annualSalary;
     }
 
-    function getAnnualCost() public override view returns (uint) {
+    function getAnnualCost() public view override returns (uint) {
         return annualSalary;
     }
 }
@@ -32,12 +35,15 @@ contract Salaried is Employee {
 contract Hourly is Employee {
     uint public hourlyRate;
 
-    constructor(uint _idNumber, uint _managerId, uint _hourlyRate) 
-        Employee(_idNumber, _managerId) {
+    constructor(
+        uint _idNumber,
+        uint _managerId,
+        uint _hourlyRate
+    ) Employee(_idNumber, _managerId) {
         hourlyRate = _hourlyRate;
     }
 
-    function getAnnualCost() public override view returns (uint) {
+    function getAnnualCost() public view override returns (uint) {
         return hourlyRate * 2080;
     }
 }
@@ -56,17 +62,22 @@ contract Manager {
     function getReports() public view returns (uint[] memory) {
         return employeeIds;
     }
-    
 }
 
 contract Salesperson is Hourly {
-    constructor(uint _idNumber, uint _managerId, uint _hourlyRate) 
-        Hourly(_idNumber, _managerId, _hourlyRate){}
+    constructor(
+        uint _idNumber,
+        uint _managerId,
+        uint _hourlyRate
+    ) Hourly(_idNumber, _managerId, _hourlyRate) {}
 }
 
 contract EngineeringManager is Salaried, Manager {
-    constructor(uint _idNumber, uint _managerId, uint _annualSalary) 
-        Salaried(_idNumber, _managerId, _annualSalary){}
+    constructor(
+        uint _idNumber,
+        uint _managerId,
+        uint _annualSalary
+    ) Salaried(_idNumber, _managerId, _annualSalary) {}
 }
 
 contract InheritanceSubmission {
