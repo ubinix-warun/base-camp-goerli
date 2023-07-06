@@ -5,10 +5,10 @@ pragma solidity ^0.8.9;
 // import "hardhat/console.sol";
 
 contract EmployeeStorage {
-    uint16 private shares;
-    uint32 private salary;
     string public name;
     uint256 public idNumber;
+    uint16 private shares;
+    uint32 private salary;
 
     address public owner;
 
@@ -18,6 +18,10 @@ contract EmployeeStorage {
         uint24 _salary,
         uint256 _idNumber
     ) payable {
+        require(_shares < 5001, "invalid shares count");
+        require(_salary < 1000001, "invalid salary");
+        // require(idNumber < type(uint256).max, "invalid id");
+
         shares = _shares;
         name = _name;
         salary = _salary;
@@ -40,11 +44,11 @@ contract EmployeeStorage {
     function grantShares(uint16 _newShares) public {
         if (_newShares > 5000) {
             revert("Too many shares");
-        }
-        if (shares + _newShares > 5000) {
+        } else if (shares + _newShares > 5000) {
             revert TooManyShares(shares + _newShares);
+        } else {
+            shares = shares + _newShares;
         }
-        shares = shares + _newShares;
     }
 
     /**
