@@ -102,32 +102,6 @@ async function deployInheritanceSubmission(tag: string,contractName: string) {
 
 }
 
-async function deployImportsExercise(tag: string,contractName: string) {
-
-  const signers = await ethers.getSigners();
-
-  const SillyStringUtils = await ethers.getContractFactory("SillyStringUtils");
-  const sillyStringUtils = await SillyStringUtils.deploy();
-
-  await sillyStringUtils.waitForDeployment();
-
-  console.log(`${sillyStringUtils.target}`)
-  const ImportsExercise = await ethers.getContractFactory("ImportsExercise",{
-    signer: signers[0],
-    libraries: {
-      SillyStringUtils: sillyStringUtils.target,
-    },
-  });
-  const importsExercise = await ImportsExercise.deploy();
-
-  await importsExercise.waitForDeployment();
-
-  console.log(
-    `${tag}: ${contractName} and SillyStringUtils deployed to ${importsExercise.target}`
-  );
-
-}
-
 async function deployContractName(tag: string,contractName: string) {
   const contract = await ethers.deployContract(contractName);
 
@@ -151,8 +125,8 @@ async function main() {
   // await deploySalesperson("T8.1", "Salesperson");
   // await deployEngineeringManager("T8.2", "EngineeringManager");
   // await deployInheritanceSubmission("T8", "InheritanceSubmission");
-  // await deployImportsExercise("T9", "ImportsExercise");
-  await deployContractName("T10", "ErrorTriageExercise");
+  await deployContractName("T9", "ImportsExercise");
+  // await deployContractName("T10", "ErrorTriageExercise");
 
 
 }

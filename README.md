@@ -77,3 +77,20 @@ npm run eslint-fix
 ```
 
 </details>
+
+</details>
+<details>
+  <summary>Install Solidity analyzer (mythril).</summary>
+  
+```shell
+conda create -n py39-sol-analysis python=3.9
+conda activate py39-sol-analysis
+
+pip3 install mythril
+
+myth analyze contracts/ArraysExercise.sol 
+>> The analysis was completed successfully. No issues were detected.
+
+```
+
+</details>
