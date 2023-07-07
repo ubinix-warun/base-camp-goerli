@@ -113,11 +113,11 @@ async function deployContractName(tag: string,contractName: string) {
 
 
 async function main() {
-  // await deployLock();
+  await deployLock();
   // await deployContractName("T1", "BasicMath");
   // await deployContractName("T2", "ControlStructures");
   // await deployContractName("T3", "EmployeeStorage");
-  await deployEmployeePat("T3", "EmployeeStorage");
+  // await deployEmployeePat("T3", "EmployeeStorage");
   // await deployContractName("T4", "ArraysExercise");
   // await deployFavoriteRecords("T5", "FavoriteRecords");
   //  T6 -- Adv Fn.

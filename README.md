@@ -78,7 +78,6 @@ npm run eslint-fix
 
 </details>
 
-</details>
 <details>
   <summary>Install Solidity analyzer (mythril).</summary>
   
@@ -90,6 +89,20 @@ pip3 install mythril
 
 myth analyze contracts/ArraysExercise.sol 
 >> The analysis was completed successfully. No issues were detected.
+
+```
+
+</details>
+
+<details>
+  <summary>Deploy to other networks.</summary>
+  
+```shell
+npx hardhat run scripts/deploy.ts --network linea-goerli
+
+>> Lock with 0.001ETH and unlock timestamp 1688729082 deployed to <deployed address>
+
+### ERROR: npx hardhat verify --network linea-goerli <deployed address>
 
 ```
 
