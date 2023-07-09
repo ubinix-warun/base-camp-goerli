@@ -95,7 +95,7 @@ myth analyze contracts/ArraysExercise.sol
 </details>
 
 <details>
-  <summary>Deploy to other networks.</summary>
+  <summary>Deploy to other networks (Linea).</summary>
   
 ```shell
 npx hardhat run scripts/deploy.ts --network linea-goerli
