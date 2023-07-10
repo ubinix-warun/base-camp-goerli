@@ -21,5 +21,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      - run: echo "$WALLET_KEY"
       - run: npm install
       - run: npx hardhat coverage
+        # env:
+          # WALLET_KEY: 0x
