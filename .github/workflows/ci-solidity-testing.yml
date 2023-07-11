@@ -1,5 +1,13 @@
 name: CI - Solidity Testing
 
+env:
+  # COVERAGE_GIT_BRANCH: "main"
+  # COVERAGE_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+  # COVERAGE_SERVICE_NAME: "github-actions-ci"
+  # INFURA_API_KEY: ${{ secrets.INFURA_API_KEY }}
+  # MNEMONIC: ${{ secrets.MNEMONIC }}
+  WALLET_KEY: ${{ secrets.WALLET_KEY }}
+
 on:
   push:
     branches: [ main ]
@@ -21,6 +29,5 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: echo "$WALLET_KEY"
       - run: npm install
       - run: npx hardhat coverage
