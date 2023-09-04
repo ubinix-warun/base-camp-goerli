@@ -1,5 +1,7 @@
 # Base 🔵 Camp -- Base Goerli
 
+[![Solidity Testing](https://github.com/ubinix-warun/base-camp-goerli/actions/workflows/solidity-testing.yml/badge.svg)](https://github.com/ubinix-warun/base-camp-goerli/actions/workflows/solidity-testing.yml)
+
 > Base Camp's curriculum has been expertly crafted to equip you with the skills and knowledge needed to build and deploy smart contracts on Base, or any EVM-compatible chain, including Ethereum, Optimism, and many more. Plus, you'll be eligible to earn NFTs as you complete each module, showcasing your mastery of the material.
 
 
@@ -52,7 +54,7 @@ npm install --save @openzeppelin/contracts
 ```
 </details>
 <details>
-  <summary>Install Mocha-Chai, eslint and prettier (sol).</summary>
+  <summary>Install Mocha-Chai, ESlint and prettier (sol).</summary>
   
 ```shell
 
